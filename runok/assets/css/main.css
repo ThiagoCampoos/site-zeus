@@ -2810,20 +2810,22 @@ ul {
   color: var(--rr-color-common-white);
   display: inline-flex;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px; /* Aumentado de 16px para 18px */
   font-weight: 600;
   line-height: 1;
-  padding: 22px 30px;
-  border-radius: 0px;
+  padding: 26px 36px; /* Aumentado de 22px 30px para 26px 36px */
+  border-radius: 5px; /* Pequeno arredondamento para um visual mais moderno */
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   text-transform: capitalize;
   position: relative;
   z-index: 1;
+  text-align: center;
 }
+
 .rr-primary-btn:before {
   content: "";
-  position: absolute;
+  position: center;
   top: 0;
   left: 0;
   bottom: 0;
@@ -2846,7 +2848,7 @@ ul {
   z-index: -1;
 }
 .rr-primary-btn i {
-  margin-left: 10px;
+  margin-left: 30px;
   font-size: 14px;
   transform: rotate(-45deg);
   transition: all 0.3s ease-in-out;
@@ -8495,23 +8497,16 @@ START: Service CSS
   row-gap: 15px;
 }
 .service-card-wrap .service-card-2 .content .title {
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 700;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 @media only screen and (max-width: 767px) {
   .service-card-wrap .service-card-2 .content .title {
     font-size: 18px;
   }
 }
-.service-card-wrap .service-card-2 .content .learn-more {
-  color: var(--rr-color-theme-primary);
-  font-size: 16px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-}
+
 .service-card-wrap .service-card-2:hover .shape {
   top: -25px;
   left: -25px;
@@ -13363,13 +13358,13 @@ START: Cta CSS
   border: 1px solid #FFFFFF;
   backdrop-filter: blur(8.5px);
   border-radius: 100px;
-  padding: 18px 30px;
+  padding: 30px 50px;
   animation: pulsarFundo 1.5s ease-in-out infinite; /* Animação que pulsa infinitamente */
 }
 @keyframes pulsarFundo {
   0% {
     transform: scale(1);
-    background-color: #ee360d; /* Cor inicial */
+    background-color: #fdfdfd; /* Cor inicial */
   }
   50% {
     transform: scale(1.1); /* Expande um pouco */
@@ -13377,11 +13372,9 @@ START: Cta CSS
   }
   100% {
     transform: scale(1);
-    background-color: #f5370c; /* Cor final */
+    background-color: rgb(250, 250, 250); /* Cor final */
   }
 }
-
-
 
 .cta-section-7 {
   position: relative;
@@ -13683,29 +13676,41 @@ START: Cta CSS
 
 .pricing-item {
   background-color: var(--rr-color-bg-1);
-  padding: 40px 50px;
   border: 1px solid var(--rr-color-border-1);
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+  text-align: left !important;
+  gap: 8px !important; /* Espaçamento uniforme entre elementos */
 }
 @media only screen and (max-width: 767px) {
   .pricing-item {
-    padding: 30px 20px;
+    padding: 30px 20px !important;
+    gap: 8px !important; /* Reduz espaçamento */
   }
 }
 .pricing-item .plan {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 25px;
+  margin-bottom: 0; /* Remove margem inferior original */
+  text-align: center; /* Centraliza o texto */
 }
 .pricing-item .price {
   font-size: 60px;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 15px;
+  margin: 12px 0 8px !important; /* Reduz espaço antes/after de "Recursos" */
+  font-size: 2.5em;
+  margin: 0;
 }
 .pricing-item span {
   color: var(--rr-color-text-body);
   font-size: 16px;
   font-weight: 500;
+  display: block;
+  margin: 20px 0 15px;
 }
 .pricing-item .pricing-btn-wrap {
   margin: 30px 0 35px 0;
@@ -13737,10 +13742,41 @@ START: Cta CSS
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
+  margin: 20px 0 10px;
+  text-align: center;
 }
 .pricing-item p {
-  font-size: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.4; /* Texto mais compacto */
 }
+.pricing-item .resource-item {
+  display: block;
+  border-bottom: 1px solid var(--rr-color-border-1);
+  line-height: 1.4;
+  font-size: 0.95em;
+  padding: 4px 0;
+  padding-left: 10px; /* Adiciona recuo à esquerda */
+  text-align: left !important;
+  margin: 0 !important;
+}
+/* Mobile */
+@media (max-width: 767px) {
+  .pricing-item p {
+    text-align: left !important; /* Mantém alinhado à esquerda em mobile */
+    gap: 6px !important;
+  }
+}
+.pricing-item .plan {
+  margin-bottom: 8px !important;
+}
+.pricing-btn {
+  justify-content: flex-start !important; /* Alinha botão à esquerda */
+}
+
+
 .pricing-item p:last-child {
   margin-bottom: 0;
 }
@@ -13748,6 +13784,48 @@ START: Cta CSS
 .pricing-item-wrap {
   margin-left: 50px;
 }
+.pricing-item br {
+  display: none; /* Remove quebras de linha forçadas */
+}
+.pricing-btn .fa-arrow-right {
+  margin-left: 8px;
+}
+.pricing-item .plan,
+.pricing-item .price,
+.pricing-item span,
+.pricing-btn-wrap,
+.feature {
+  text-align: left !important; /* Força alinhamento à esquerda */
+  width: 100%;
+}
+/* Ajuste específico para mobile */
+@media (max-width: 767px) {
+  .pricing-btn {
+    width: 100%;
+  }
+}
+.pricing-btn-wrap {
+  text-align: center !important; /* Container do botão centralizado */
+  width: 100%;
+}
+
+.pricing-item p {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.pricing-item br {
+  display: none;
+}
+
+.pricing-btn {
+  justify-content: center !important; /* Centraliza ícone + texto */
+  text-align: center !important;
+  display: inline-flex !important; /* Mantém alinhamento interno */
+}
+
 @media only screen and (max-width: 992px) {
   .pricing-item-wrap {
     margin-left: 0;
@@ -13766,7 +13844,8 @@ START: Cta CSS
 }
 @media only screen and (max-width: 767px) {
   .pricing-item-2 {
-    padding: 40px 20px;
+    padding: 30px 20px;
+    gap: 12px;
   }
 }
 .pricing-item-2:not(:last-of-type) {
@@ -18421,18 +18500,16 @@ START: Theme Slider CSS
 
 .choose-us-content .choose-list li {
   color: #B0B2B7;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 400;
   display: grid;
-  align-items: center;
+  align-items: flex;
   grid-template-columns: 45px 1fr;
   grid-gap: 15px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #E6E6E6;
+  line-height: 1.5;
   font-weight: bold;
-}
-@media only screen and (max-width: 767px) {
-  .choose-us-content .choose-list li {
-    font-size: 15px;
-  }
 }
 .choose-us-content .choose-list li:not(:last-of-type) {
   margin-bottom: 25px;
@@ -18441,7 +18518,7 @@ START: Theme Slider CSS
   background-color: var(--rr-color-common-white);
   color: var(--rr-color-theme-primary);
   height: 45px;
-  width: 45px;
+  width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20911,5 +20988,25 @@ START: Footer CSS
     color: var(--rr-color-theme-primary);
   }
 }
+.service-card-wrap .service-card-2 .content .learn-more {
+  color: var(--rr-color-theme-primary);
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  align-items: center;
+  column-gap: 5px;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    display: none;
+  }
+}
+
+
+
 
 /*# sourceMappingURL=main.css.map */

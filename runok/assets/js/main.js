@@ -1156,22 +1156,29 @@
         ignoreMobileResize: true,
     });
     
-    function toggleFAQ(index) {
-        const answers = document.querySelectorAll(".faq-answer");
-        const arrows = document.querySelectorAll(".arrow");
-    
-        if (answers[index].style.display === "block") {
-            answers[index].style.display = "none";
-            arrows[index].style.transform = "rotate(0deg)";
-        } else {
-            answers.forEach((answer, i) => {
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 50, // Ajuste conforme necessário
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+    document.querySelectorAll(".learn-more").forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            let answer = this.nextElementSibling;
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
                 answer.style.display = "none";
-                arrows[i].style.transform = "rotate(0deg)";
-            });
-            answers[index].style.display = "block";
-            arrows[index].style.transform = "rotate(180deg)";
-        }
-    }
-    
+            }
+        });
+    });
 
 })(jQuery);
