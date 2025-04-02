@@ -18500,22 +18500,19 @@ START: Theme Slider CSS
 
 .choose-us-content .choose-list li {
   color: #B0B2B7;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 400;
   display: grid;
   align-items: flex;
-  grid-template-columns: 45px 1fr;
-  grid-gap: 15px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #E6E6E6;
-  line-height: 1.5;
+  grid-template-columns: 35px 1fr;
+  grid-gap: 1px;
+  padding-bottom: -5px;
   font-weight: bold;
 }
 .choose-us-content .choose-list li:not(:last-of-type) {
   margin-bottom: 25px;
 }
 .choose-us-content .choose-list li .icon {
-  background-color: var(--rr-color-common-white);
   color: var(--rr-color-theme-primary);
   height: 45px;
   width: 40px;

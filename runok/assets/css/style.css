@@ -1,0 +1,23 @@
+   /* Adjust the margins and paddings */
+   .service-card-2 .content {
+    margin-top: 0;
+    padding: 20px;
+}
+
+.service-card-2 .content .title {
+    margin-bottom: 10px;
+}
+
+.service-card-2 .content .learn-more {
+    margin-top: 10px;
+}
+
+.service-card-2 .content .answer {
+    margin-top: 10px;
+}
+
+.service-card-2 .content .title {
+    margin-right: 10px;
+  }
+
+  
